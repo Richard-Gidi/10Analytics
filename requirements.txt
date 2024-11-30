@@ -8,4 +8,4 @@ scipy
 seaborn
 streamlit
 xgboost
-!pip install --upgrade pip
+
