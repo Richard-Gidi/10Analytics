@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 import pickle
+
 # Load the model from the uploaded file
 model = joblib.load('models/child_mortality_predictor.pkl')
 
@@ -25,6 +26,10 @@ selection = st.sidebar.radio("Go to", menu)
 # Welcome page content
 if selection == "Welcome":
     st.title("Welcome to the Child Mortality Prediction App")
+    
+    # Add an image to the welcome page
+    st.image("models/sdg.jpg", caption="Child Mortality Prediction - SDG 3", use_column_width=True)
+
     st.write("""
     ### Goal of SDG 3: Good Health and Well-being
     Sustainable Development Goal (SDG) 3 aims to ensure healthy lives and promote well-being for all at all ages. Achieving SDG 3 is vital to addressing the major health challenges facing the world today, from reducing maternal and child mortality rates to tackling communicable diseases such as HIV/AIDS and tuberculosis. It emphasizes the importance of universal health coverage, access to essential health services, and improving health outcomes through investments in healthcare and well-being.
