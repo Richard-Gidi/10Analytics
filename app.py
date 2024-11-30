@@ -31,14 +31,9 @@ st.write("### Predict the child mortality rate using healthcare indicators.")
 st.sidebar.header("Input Parameters")
 user_inputs = {}
 
-# Dynamically create input fields for all features
+# Dynamically create input fields for all features using number_input
 for feature in feature_names:
-    if "Year" in feature:
-        user_inputs[feature] = st.sidebar.number_input(feature, value=2020, step=1, format="%d")
-    elif "%" in feature or "Rate" in feature:
-        user_inputs[feature] = st.sidebar.slider(feature, 0.0, 100.0, 50.0)
-    else:
-        user_inputs[feature] = st.sidebar.number_input(feature, value=0)
+    user_inputs[feature] = st.sidebar.number_input(feature, value=0, format="%d")
 
 # Convert user inputs to a DataFrame
 input_df = pd.DataFrame([user_inputs])
