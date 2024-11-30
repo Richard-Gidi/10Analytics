@@ -8,7 +8,7 @@ import pickle
 #uploaded = files.upload()
 
 # Load the model from the uploaded file
-model = joblib.load('child_mortality_predictor.pkl')
+model = joblib.load('models/child_mortality_predictor.pkl')
 
 # Load feature names (example uses a training DataFrame structure; adjust as needed)
 feature_names = [
