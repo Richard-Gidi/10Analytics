@@ -10,18 +10,27 @@ import pickle
 # Load the model from the uploaded file
 model = joblib.load('models/child_mortality_predictor.pkl')
 
-# Load feature names (example uses a training DataFrame structure; adjust as needed)
-feature_names = [
-    'Year',
-    'Share of population covered by health insurance (ILO (2014))',
-    'BCG (% of one-year-olds immunized)',
-    'HepB3 (% of one-year-olds immunized)',
-    'Hib3 (% of one-year-olds immunized)',
-    'MCV1 (% of one-year-olds immunized)',
-    'Pol3 (% of one-year-olds immunized)',
-    'RCV1 (% of one-year-olds immunized)',
-    'DTP3 (% of one-year-olds immunized)'
-]
+
+# Feature names and their descriptions
+feature_info = {
+    'Year': "The year in which the data was recorded. This represents the specific year for which child mortality is being predicted.",
+    'Share of population covered by health insurance (ILO (2014))': 
+        "Percentage of the population covered by health insurance, according to the International Labour Organization (ILO). Higher coverage typically correlates with better healthcare access.",
+    'BCG (% of one-year-olds immunized)': 
+        "The percentage of one-year-old children who received the Bacillus Calmette-Guérin (BCG) vaccine, which protects against tuberculosis.",
+    'HepB3 (% of one-year-olds immunized)': 
+        "Percentage of one-year-old children who received the third dose of the Hepatitis B vaccine.",
+    'Hib3 (% of one-year-olds immunized)': 
+        "Percentage of one-year-old children who received the third dose of the Haemophilus influenzae type b (Hib) vaccine, which protects against bacterial infections.",
+    'MCV1 (% of one-year-olds immunized)': 
+        "Percentage of one-year-old children who received the first dose of the measles-containing vaccine (MCV1), which protects against measles.",
+    'Pol3 (% of one-year-olds immunized)': 
+        "Percentage of one-year-old children who received the third dose of the polio vaccine, which protects against poliomyelitis.",
+    'RCV1 (% of one-year-olds immunized)': 
+        "Percentage of one-year-old children who received the first dose of the rotavirus vaccine, which protects against severe diarrhea.",
+    'DTP3 (% of one-year-olds immunized)': 
+        "Percentage of one-year-old children who received the third dose of the diphtheria, tetanus, and pertussis (DTP) vaccine, which protects against these serious diseases."
+}
 
 # Title of the app
 st.title("Child Mortality Prediction App")
@@ -32,8 +41,9 @@ st.sidebar.header("Input Parameters")
 user_inputs = {}
 
 # Dynamically create input fields for all features using number_input
-for feature in feature_names:
+for feature in feature_info:
     user_inputs[feature] = st.sidebar.number_input(feature, value=0, format="%d")
+    st.sidebar.tooltip(feature_info[feature])  # Add tooltip with description for each feature
 
 # Convert user inputs to a DataFrame
 input_df = pd.DataFrame([user_inputs])
