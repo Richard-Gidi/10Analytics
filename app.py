@@ -23,9 +23,6 @@ feature_names = [
 menu = ["Welcome", "Variable Explanation", "Prediction"]
 selection = st.sidebar.radio("Go to", menu)
 
-# Set the theme for the app
-st.set_page_config(page_title="Child Mortality Prediction App", page_icon=":guardsman:", layout="wide", initial_sidebar_state="expanded")
-
 # Welcome page content
 if selection == "Welcome":
     st.title("Welcome to the Child Mortality Prediction App")
