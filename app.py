@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 import pickle
-from google.colab import files
+#from google.colab import files
 
 # Upload the model file
 #uploaded = files.upload()
