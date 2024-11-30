@@ -20,7 +20,7 @@ feature_names = [
 ]
 
 # Create a navigation menu
-menu = ["Welcome", "Prediction"]
+menu = ["Welcome", "Variable Explanation", "Prediction"]
 selection = st.sidebar.radio("Go to", menu)
 
 # Welcome page content
@@ -37,6 +37,24 @@ if selection == "Welcome":
     One of the targets within SDG 3 is to reduce child mortality, which remains a significant global issue. Children under the age of five are particularly vulnerable, and efforts are ongoing to ensure that no child dies from preventable causes. This involves improving healthcare systems, increasing vaccination coverage, and providing better access to nutrition and sanitation.
 
     In this app, we aim to support these global efforts by providing a tool to predict child mortality rates based on healthcare indicators. By inputting data such as immunization rates and health insurance coverage, we can gain insights into factors that influence child mortality and work toward better health outcomes.
+    """)
+
+# Variable Explanation page content
+elif selection == "Variable Explanation":
+    st.title("Variable Explanation")
+    st.write("""
+    ### Explanation of Variables Used in the Prediction Model:
+    The following healthcare indicators are used to predict child mortality:
+
+    - **Year**: The year for which the data is collected. This helps to account for the impact of time and changes in healthcare systems or policy on child mortality.
+    - **Share of population covered by health insurance (ILO (2014))**: The percentage of the population covered by health insurance. A higher percentage of coverage is generally associated with improved healthcare access and lower child mortality.
+    - **BCG (% of one-year-olds immunized)**: The percentage of one-year-olds who received the Bacillus Calmette-Guérin (BCG) vaccine, which helps protect against tuberculosis. Vaccination is crucial for reducing preventable deaths in children.
+    - **HepB3 (% of one-year-olds immunized)**: The percentage of one-year-olds who received the third dose of the Hepatitis B vaccine. Hepatitis B vaccination reduces the risk of liver disease and associated mortality.
+    - **Hib3 (% of one-year-olds immunized)**: The percentage of one-year-olds who received the third dose of the Haemophilus influenzae type b (Hib) vaccine. This vaccine prevents infections like meningitis, pneumonia, and epiglottitis.
+    - **MCV1 (% of one-year-olds immunized)**: The percentage of one-year-olds who received the first dose of the Measles, Mumps, and Rubella (MMR) vaccine. Measles vaccination reduces child mortality from this preventable disease.
+    - **Pol3 (% of one-year-olds immunized)**: The percentage of one-year-olds who received the third dose of the polio vaccine. Polio vaccination prevents paralysis and death due to the virus.
+    - **RCV1 (% of one-year-olds immunized)**: The percentage of one-year-olds who received the first dose of the Rotavirus vaccine. This vaccine reduces the risk of severe diarrhea and dehydration in children.
+    - **DTP3 (% of one-year-olds immunized)**: The percentage of one-year-olds who received the third dose of the Diphtheria, Tetanus, and Pertussis (DTP) vaccine. Vaccination helps prevent these deadly diseases in young children.
     """)
 
 # Prediction page content
